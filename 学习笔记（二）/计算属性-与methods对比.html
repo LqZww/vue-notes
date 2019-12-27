@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>计算属性-与methods对比</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>methods：{{getInfo()}}</h2>
+    <h2>methods：{{getInfo()}}</h2>
+
+    <h2>computed：{{info}}</h2>
+    <h2>computed：{{info}}</h2>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        name: 'zww',
+        age: 20
+      },
+      methods: {
+        getInfo() {
+          console.log('getInfo');
+          return this.name + ' ' + this.age
+        }
+      },
+      computed: {
+        info() {
+          console.log('info');
+          return this.name + ' ' + this.age
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-on-修饰符</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- .stop阻止冒泡 -->
+    <div @click="divClick">
+      点我看冒泡不
+      <button @click.stop="btnClick">btn</button>
+    </div>
+
+    <!-- .prevent阻止默认行为 -->
+    <form action="lqzww">
+      <input type="submit" value="提交" @click.prevent="subClick">
+    </form>
+
+    <!-- .enter -->
+    <input type="text" @keyup="keyUp">
+    <input type="text" @keyup.enter="keyUp">
+
+    <!-- .once -->
+    <button @click.once="once">按钮</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      methods: {
+        divClick() {
+          console.log("div");
+        },
+        btnClick() {
+          console.log("btn");
+        },
+        subClick() {
+          console.log("subClick");
+        },
+        keyUp() {
+          console.log("keyup");
+        },
+        once() {
+          console.log("once");
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>
