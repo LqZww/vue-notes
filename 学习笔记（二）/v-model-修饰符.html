@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-model-修饰符</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- .lazy：让数据在失去焦点或者回车时才会更新同步 -->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+    <hr>
+
+    <!-- .number：自动将用户的输入值转为数值类型 -->
+    <input type="number" v-model.number="num">
+    <h2>{{num}}--{{typeof num}}</h2>
+    <hr>
+
+    <!-- .trim：自动过滤用户输入的首尾空白字符 -->
+    <input type="text" v-model.trim="blank">
+    <h2>{{blank}}</h2>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello 修饰符',
+        num: '',
+        blank: ''
+      }
+    })
+  </script>
+
+</body>
+
+</html>
