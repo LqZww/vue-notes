@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件之间的通信-子传父</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn @item-click="cpnClick"></cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <button v-for="item in list" @click="listClick(item)">
+        {{item.name}}
+      </button>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    const cpn = {
+      template: '#cpn',
+      data() {
+        return {
+          list: [
+            {
+              id: 1,
+              name: 'lq'
+            },
+            {
+              id: 2,
+              name: 'zww'
+            }
+          ]
+        }
+      },
+      methods: {
+        listClick(item) {
+          this.$emit('item-click', item)
+        }
+      }
+    }
+    const app = new Vue({
+      el: '#app',
+      components: {
+        cpn
+      },
+      methods: {
+        cpnClick(item) {
+          console.log(item);
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

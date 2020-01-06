@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件之间的通信-父传子</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn :cpn-game='game'></cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      {{cpnGame}}
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    const cpn = {
+      template: '#cpn',
+      // 1、数组写法
+      // props: ['cpngame']
+
+      // 2、对象写法
+      props: {
+        // 2.1、单个类型检查
+        // cpngame: Array
+
+        // 2.2、可能多个类型检查
+        // cpngame: [Array, Number]
+
+        // 2.3、default代表默认值，required表示是否必填
+        cpnGame: {
+          type: Array,
+          default() {
+            return ['hhh', 'qqqq', 'aaa']
+          },
+          required: true
+        }
+      }
+    }
+    const app = new Vue({
+      el: '#app',
+      data: {
+        game: ['天龙八部', '英雄联盟']
+      },
+      components: {
+        cpn
+      }
+    })
+  </script>
+
+</body>
+
+</html>
