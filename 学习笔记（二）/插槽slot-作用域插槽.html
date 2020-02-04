@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>插槽slot-作用域插槽</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+
+    <cpn>
+      <template slot-scope="slot">
+        <span>{{slot.data.join(' - ')}}</span>
+      </template>
+    </cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <slot :data="game">
+        <ul>
+          <li v-for="item in game">{{item}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              game: ['天龙八部', '英雄联盟', '王者荣耀', '荒野求生']
+            }
+          }
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>
