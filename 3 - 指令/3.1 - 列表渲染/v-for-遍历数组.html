@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-for-遍历数组</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item,index) in list">
+        {{index}} - {{item}}
+      </li>
+    </ul>
+
+    <!-- 用 of 替代 in 作为分隔符，因为它更接近 JavaScript 迭代器的语法： -->
+    <div v-for="(item,index) of list">
+      {{index}} - {{item}}
+    </div>
+  </div>
+  <script src="../../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        list: ['天龙八部', '英雄联盟', '王者荣耀']
+      }
+    })
+  </script>
+
+</body>
+
+</html>

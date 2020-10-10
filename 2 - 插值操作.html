@@ -5,23 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-bind-style-对象</title>
+  <title>插值操作</title>
 </head>
 
 <body>
   <div id="app">
-    <div :style="{color:'red',fontSize:'20px'}">{{message}}</div>
-    <div :style="{color:isColor,'font-size':isfont}">{{message}}</div>
+    <h2>{{message}}</h2>
+    <h2>{{name + age}}</h2>
+    <h2>{{name + ' ' +age}}</h2>
+    <h2>{{name}} {{age}}</h2>
+    <h2>{{age * 2}}</h2>
+    <h2>{{ ok ? 'YES' : 'NO' }}</h2>
   </div>
-  <script src="../vue.js"></script>
+  <script src="./vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        message: "hello v-bind-style",
-        isColor: 'orange',
-        isfont: '22px'
-      }
+        message: 'hello',
+        age: 18,
+        name: 'zww',
+        ok: 1
+      },
     })
   </script>
 

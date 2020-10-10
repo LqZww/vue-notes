@@ -5,20 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-html</title>
+  <title>v-model-基本使用</title>
 </head>
 
 <body>
   <div id="app">
-    <h2>{{url}}</h2>
-    <h2 v-html="url"></h2>
+    <input type="text" v-model="message">
+    <h2>{{message}}</h2>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        url: '<a href="https://zhouwanwen.com">个人博客</a>'
+        message: 'hello v-model'
       }
     })
   </script>

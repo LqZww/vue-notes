@@ -5,20 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-text</title>
+  <title>v-bind-style-数组</title>
 </head>
 
 <body>
   <div id="app">
-    <h2>{{url}}</h2>
-    <h2 v-text="url">被覆盖了，你看不到我</h2>
+    <div>{{message}}</div>
+    <div :style="[styleObjectA,styleObjectB]">{{message}}</div>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        url: '<a href="https://zhouwanwen.com">个人博客</a>'
+        message: "hello v-bind-style",
+        styleObjectA: {
+          fontSize: '22px'
+        },
+        styleObjectB: {
+          color: 'red'
+        }
       }
     })
   </script>

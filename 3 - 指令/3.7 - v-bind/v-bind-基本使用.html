@@ -5,23 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-for-遍历数组</title>
+  <title>v-bind-基本使用</title>
 </head>
 
 <body>
   <div id="app">
-    <ul>
-      <li v-for="(item,index) in list">
-        {{index}} - {{item}}
-      </li>
-    </ul>
+    <a v-bind:href="blog">个人博客</a>
+    <a :href="blog">个人博客</a>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        list: ['天龙八部', '英雄联盟', '王者荣耀']
+        blog: 'https://www.cnblogs.com/LqZww/'
       }
     })
   </script>

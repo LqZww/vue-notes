@@ -5,20 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-bind-基本使用</title>
+  <title>v-if</title>
 </head>
 
 <body>
   <div id="app">
-    <a v-bind:href="blog">个人博客</a>
-    <a :href="blog">个人博客</a>
+    <h2 v-if="isShow">{{message}}</h2>
+    <h2 v-else>设为false你就看到我了</h2>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        blog: 'https://zhouwanwen.com'
+        message: 'hello v-if',
+        isShow: true
       }
     })
   </script>

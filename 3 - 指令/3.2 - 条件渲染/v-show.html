@@ -5,29 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-on-基本使用</title>
+  <title>v-show</title>
 </head>
 
 <body>
   <div id="app">
-    <button v-on:click="reduce">-</button>
-    {{num}}
-    <button @click="add">+</button>
+    <h2 v-show="isShow">v-show="true"</h2>
+    <h2 v-show="false">v-show="false"</h2>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        num: 0
-      },
-      methods: {
-        reduce() {
-          this.num--
-        },
-        add() {
-          this.num++
-        }
+        isShow: true
       }
     })
   </script>

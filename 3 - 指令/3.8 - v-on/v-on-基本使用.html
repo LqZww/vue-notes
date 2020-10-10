@@ -5,23 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-model-值绑定</title>
+  <title>v-on-基本使用</title>
 </head>
 
 <body>
   <div id="app">
-    <label v-for="item in list" :for="item">
-      <input type="checkbox" :value="item" :id="item" v-model="game">{{item}}
-    </label>
-    <h2>{{game}}</h2>
+    <button v-on:click="reduce">-</button>
+    {{num}}
+    <button @click="add">+</button>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        list: ['天龙八部', '英雄联盟', '王者荣耀', 'QQ飞车'],
-        game: []
+        num: 0
+      },
+      methods: {
+        reduce() {
+          this.num--
+        },
+        add() {
+          this.num++
+        }
       }
     })
   </script>

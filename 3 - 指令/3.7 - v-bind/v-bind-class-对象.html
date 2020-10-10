@@ -5,20 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-model-基本使用</title>
+  <title>v-bind-class-对象</title>
+  <style>
+    .active {
+      color: red;
+    }
+
+    .font {
+      font-size: 40px;
+    }
+  </style>
 </head>
 
 <body>
   <div id="app">
-    <input type="text" v-model="message">
     <h2>{{message}}</h2>
+    <h2 :class="{active:isActive,font:isFont}">{{message}}</h2>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        message: 'hello v-model'
+        message: "hello v-bind",
+        isActive: true,
+        isFont: false
       }
     })
   </script>

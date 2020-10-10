@@ -5,23 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>HelloWorld</title>
+  <title>v-bind-style-对象</title>
 </head>
 
 <body>
   <div id="app">
-    {{message}}
+    <div :style="{color:'red',fontSize:'20px'}">{{message}}</div>
+    <div :style="{color:isColor,'font-size':isfont}">{{message}}</div>
   </div>
-
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        message: 'hello world'
+        message: "hello v-bind-style",
+        isColor: 'orange',
+        isfont: '22px'
       }
     })
   </script>
+
 </body>
 
 </html>

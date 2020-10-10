@@ -12,11 +12,13 @@
   <div id="app">
     <ul>
       <li v-for="(value,key,index) in info">
-        {{value}} - {{key}} - {{index}}
+        键值：{{value}}，
+        键名：{{key}}，
+        索引：{{index}}
       </li>
     </ul>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
@@ -24,7 +26,7 @@
         info: {
           name: 'zww',
           age: 11,
-          blog: 'https://zhouwanwen.com'
+          blog: 'https://www.cnblogs.com/LqZww'
         }
       }
     })

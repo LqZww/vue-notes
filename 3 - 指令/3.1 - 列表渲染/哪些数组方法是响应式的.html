@@ -20,9 +20,20 @@
         {{item}}
       </li>
     </ul>
-    <button @click="btnClick">btn</button>
+    <hr>
+    <h2>响应式</h2>
+    <button @click="btnClick">push方法</button>
+    <button @click="pop">pop方法</button>
+    <button @click="shift">shift方法</button>
+    <button @click="unshift">unshift方法</button>
+    <button @click="splice">splice方法</button>
+    <button @click="sort">sort方法</button>
+    <button @click="reverse">reverse方法</button>
+    <hr>
+    <h2>不是响应式</h2>
+    <button @click="letters">letters</button>
   </div>
-  <script src="../vue.js"></script>
+  <script src="../../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
@@ -33,31 +44,38 @@
         btnClick() {
           //push
           this.letters.push('aa')
-
-          //通过索引值修改数组中的元素，不是响应式的
-          // this.letters[0] = 'aaaa'
-
+        },
+        pop() {
           //pop：删除数组中的最后一个元素
-          // this.letters.pop()
-
+          this.letters.pop()
+        },
+        shift() {
           //shift：删除数组中的第一个元素
-          // this.letters.shift()
-
+          this.letters.shift()
+        },
+        unshift() {
           //unshift：在数组前面添加元素
-          // this.letters.unshift('1')
-
+          this.letters.unshift('1')
+        },
+        splice() {
           //splice：删除元素/插入元素/替换元素
           //删除元素：第一个参数插入开始位置，第二个传删除几个元素个数，如果第二个参数不传会把后面的元素全部删掉
           //替换元素：第二个参数表示要替换几个元素的个数，后面是用于替换前面的元素
-          // this.letters.splice(1, 2, '111', '222')
+          this.letters.splice(1, 2, '111', '222')
           //插入元素：第二个参数为0，后面跟需要插入的元素
           // this.letters.splice(2, 0, 'x', 'y')
-
+        },
+        sort() {
           //sort：排序
-          // this.letters.sort()
-
+          this.letters.sort()
+        },
+        reverse() {
           //reverse：翻转
-          // this.letters.reverse()
+          this.letters.reverse()
+        },
+        letters() {
+          //通过索引值修改数组中的元素，不是响应式的
+          this.letters[0] = 'aaaa'
         }
       }
     })

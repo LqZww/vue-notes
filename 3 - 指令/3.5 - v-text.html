@@ -5,32 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>v-bind-class-数组</title>
-  <style>
-    .active {
-      color: red;
-    }
-
-    .font {
-      font-size: 40px;
-    }
-  </style>
+  <title>v-text</title>
 </head>
 
 <body>
   <div id="app">
-    <h2>{{message}}</h2>
-    <h2 :class="['active','font']">{{message}}</h2>
-    <h2 :class="[isActive,isFont]">{{message}}</h2>
+    <h2>{{url}}</h2>
+    <h2 v-text="url">被覆盖了，你看不到我</h2>
   </div>
   <script src="../vue.js"></script>
   <script>
     const app = new Vue({
       el: '#app',
       data: {
-        message: "hello v-bind",
-        isActive: 'active',
-        isFont: 'font'
+        url: '<a href="https://www.cnblogs.com/LqZww/">个人博客</a>'
       }
     })
   </script>
