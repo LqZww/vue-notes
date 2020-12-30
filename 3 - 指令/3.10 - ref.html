@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ref</title>
+</head>
+
+<body>
+  <div id="app">
+    <p ref="content">hello ref</p>
+    <button @click="getContent">获取</button>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      methods: {
+        getContent() {
+          console.log(this.$refs.content.textContent);
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

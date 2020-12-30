@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>侦听器</title>
+</head>
+
+<body>
+  <div id="app">
+    firstName：<input type="text" v-model="firstName"><br>
+    lastName：<input type="text" v-model="lastName"><br>
+    fullName1（computed）：<input type="text" v-model="fullName1"><br>
+    fullName2（watch）：<input type="text" v-model="fullName2"><br>
+    fullName3（get、set）: <input type="text" v-model="fullName3">
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          firstName: '',
+          lastName: '',
+          fullName2: ''
+        }
+      },
+      computed: {
+        fullName1() {
+          return this.firstName + ' ' + this.lastName
+        },
+        fullName3: {
+          get() {
+            return this.firstName + ' ' + this.lastName
+          },
+          set(value) {
+            let newValue = value.split(" ")
+            this.firstName = newValue[0]
+            this.lastName = newValue[1]
+          }
+        }
+      },
+      watch: {
+        firstName(newValue, oldValue) {
+          this.fullName2 = newValue + ' ' + this.lastName
+        },
+        lastName(newValue, oldValue) {
+          this.fullName2 = this.firstName + ' ' + newValue
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

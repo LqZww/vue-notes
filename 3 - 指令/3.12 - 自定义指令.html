@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义指令</title>
+</head>
+
+<body>
+  <div id="app">
+    <p v-cap-text="msg1"></p>
+    <p v-lower-text="msg2"></p>
+  </div>
+  <script src="../vue.js"></script>
+  <script>
+    // 1. 全局自定义指令
+    Vue.directive('cap-text', function (el, binding) {
+      el.textContent = binding.value.toUpperCase()
+    })
+    const app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg1: 'hello world',
+          msg2: 'HELLO WORLD'
+        }
+      },
+      // 2. 局部自定义指令
+      directives: {
+        'lower-text': function (el, binding) {
+          el.textContent = binding.value.toLowerCase()
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>例子2</title>
+  <style>
+    .fade-enter-active {
+      transition: all 1s;
+    }
+
+    .fade-leave-active {
+      transition: all 2s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="isShow = !isShow">切换</button>
+    <transition name="fade">
+      <h2 v-show="isShow">hello animation</h2>
+    </transition>
+  </div>
+
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isShow: true
+      },
+    })
+  </script>
+
+</body>
+
+</html>
